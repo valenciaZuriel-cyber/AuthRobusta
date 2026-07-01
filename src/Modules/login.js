@@ -14,13 +14,16 @@ const UserSchema = new mongoose.Schema({
     loginAttempts: {
         type: Number,
         required: true,
-        default: 5 // Cuantos intentos va a tenr el usuario.
+        default: 0 
+    },
+    lockUntil: {
+        type: Date,
+        default: null
     },
     creationDate: {
         type: Date,
         default: Date.now
     }
 });
-
 
 module.exports = mongoose.model("User", UserSchema);
